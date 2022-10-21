@@ -1,0 +1,20 @@
+local UP = vmath.vector3(0, 1, 0)
+local RAD_180 = math.pi
+
+local function clamp(v, min, max)
+	
+end
+
+function init(self)
+	self.speed = 35
+
+	self.nearby = {}
+end
+
+function update(self, dt)
+	
+end
+
+function on_message(self, message_id, message, sender)
+	
+end

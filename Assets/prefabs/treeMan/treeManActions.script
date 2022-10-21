@@ -13,7 +13,6 @@ function init(self)
 end
 
 function update(self, dt)
-	print(self.ammo)
 	self.dt = dt
 	if self.moving then
 		local pos = go.get_position()
@@ -44,10 +43,11 @@ function on_input(self, action_id, action)
 		self.input.x = -1
 	elseif action_id == hash("right") then
 		self.input.x = 1
-	elseif action_id == hash("fire") and action.pressed then
+	elseif action_id == hash("fire") and action.pressed and self.ammo > 0 then
 		self.firing = true
 		self.ammo = self.ammo - 1 
 		self.timer = 3
+		print(self.ammo)
 	elseif action_id == hash("fire") and action.released then
 		self.firing = false
 	end
