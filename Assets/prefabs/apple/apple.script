@@ -1,11 +1,19 @@
 go.property("dir", vmath.vector3())
 
 function init(self)
-	self.speed = 200
+	self.speed = 1000
+	self.life = 0.2
 end
 
 function update(self, dt)
 	local pos = go.get_position()
 	pos = pos + self.dir * self.speed * dt
 	go.set_position(pos)
+
+	self.life = self.life - dt
+
+	if self.life < 0 then
+		self.life = 0.000001
+		self.speed = 0
+	end
 end

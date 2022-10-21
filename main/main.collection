@@ -3,8 +3,8 @@ instances {
   id: "treeMan"
   prototype: "/Assets/prefabs/treeMan/treeMan.go"
   position {
-    x: 184.0
-    y: 72.0
+    x: 240.0
+    y: 97.0
     z: 0.0
   }
   rotation {

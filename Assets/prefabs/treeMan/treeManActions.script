@@ -1,28 +1,34 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
 
+	self.dt = nill
+	self.timer = 3
+	self.ammo = 5
 	self.moving = false
 	self.firing = false
+	self.deleting = false
 	self.dir = vmath.vector3(0 , 0, 0)
 	self.speed = 50
 	self.input = vmath.vector3() 
 end
 
 function update(self, dt)
-	print(vmath.length(self.input))
+	print(self.ammo)
+	self.dt = dt
 	if self.moving then
 		local pos = go.get_position()
 		pos = pos + self.dir * self.speed * dt
 		go.set_position(pos)
 	end
-
-	if self.firing then
+	
+	if self.firing and self.ammo >= 0 then
 		local angle = math.atan2(self.dir.y , self.dir.x)
 		local rot = vmath.quat_rotation_z(angle)
 		local props = {dir = self.dir}
-		factory.create("#applefactory", nil, rot, props)
+		local pos = go.get_position()
+		factory.create("#applefactory", vmath.vector3(pos.x + 10, pos.y + 10, pos.z), rot, props)
 	end
-
+	
 	self.input.x = 0
 	self.input.y = 0
 	self.moving = false
@@ -30,7 +36,7 @@ function update(self, dt)
 end
 
 function on_input(self, action_id, action)
-	if action_id == hash("up") then
+	if action_id == hash("up") then 
 		self.input.y = 1
 	elseif action_id == hash("down") then
 		self.input.y = -1
@@ -40,6 +46,8 @@ function on_input(self, action_id, action)
 		self.input.x = 1
 	elseif action_id == hash("fire") and action.pressed then
 		self.firing = true
+		self.ammo = self.ammo - 1 
+		self.timer = 3
 	elseif action_id == hash("fire") and action.released then
 		self.firing = false
 	end
@@ -47,5 +55,20 @@ function on_input(self, action_id, action)
 	if vmath.length(self.input) > 0 then
 		self.moving = true
 		self.dir = vmath.vector3(self.input)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	self.apple_id = msg.url(message.other_id)
+	if message_id == hash("contact_point_response") then
+		if message.other_group == hash("apple") then
+			self.timer = self.timer - self.dt
+			print(self.timer)
+			if self.timer < 2.7 then
+				go.delete(self.apple_id)
+				self.ammo = self.ammo + 1
+				self.timer = 3
+			end
+		end
 	end
 end
