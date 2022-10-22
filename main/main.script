@@ -9,9 +9,33 @@ end
 function init(self)
 	math.randomseed(os.time())
 	self.enemies = {}
-	
+	self.time = 5
+	self.countdown = self.time 
+	self.counter = 2
+	self.spawning = false
+end
 
-	for i = 1, 36 do
-		table.insert(self.enemies, spawn_trash_man())
+function update(self, dt)
+	if self.spawning then
+		self.counter = self.counter * self.counter
+		
+		for i = 1, self.counter do
+			table.insert(self.enemies, spawn_trash_man())
+		end
+		self.counter = self.counter + 1
+		self.time = self.time * 2.5
+		self.countdown = self.time
+		self.spawning = false
+	else
+		print(self.countdown)
+		if self.countdown > 0.5 then
+			self.countdown = self.countdown - dt
+		elseif self.countdown <= 0.5 then
+			self.spawning = true
+		end
 	end
+end
+
+function on_message(self, message_id, message, sender)
+	
 end

@@ -20,7 +20,6 @@ end
 
 function on_message(self, message_id, message, sender)
 	self.object_id = msg.url(message.other_id)
-	print(self.object_id)
 	if message_id == hash("collision_response") then
 		if message.other_group == hash("trash") then
 			if self.speed > 0 then

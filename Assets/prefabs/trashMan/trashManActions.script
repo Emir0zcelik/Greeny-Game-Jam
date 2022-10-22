@@ -60,10 +60,12 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("trigger_response") then
-		if message.enter then
-			self.nearby[message.other_id] = true
-		else
-			self.nearby[message.other_id] = false
+		if message_group == hash("treeMan") then
+			if message.enter then
+				self.nearby[message.other_id] = true
+			else
+				self.nearby[message.other_id] = false
+			end
 		end
 	end
 end
