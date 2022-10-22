@@ -3,6 +3,10 @@ fonts {
   name: "gothic"
   font: "/Assets/fonts/gothic.font"
 }
+fonts {
+  name: "system_font"
+  font: "/builtins/fonts/system_font.font"
+}
 textures {
   name: "graphicAssets"
   texture: "/Assets/images/graphicAssets.atlas"
@@ -109,7 +113,7 @@ nodes {
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  layer: ""
+  layer: "notices"
   inherit_alpha: true
   slice9 {
     x: 0.0
@@ -129,7 +133,7 @@ nodes {
 }
 nodes {
   position {
-    x: 200.0
+    x: 191.0
     y: 375.0
     z: 0.0
     w: 1.0
@@ -180,7 +184,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  layer: ""
+  layer: "notices"
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
@@ -206,8 +210,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.25
-    y: 0.25
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -218,16 +222,17 @@ nodes {
     w: 1.0
   }
   color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "SECONDS TO NEXT WAVE\n"
+  "\n"
   ""
-  font: "gothic"
+  font: "system_font"
   id: "secondsToNextWave"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -246,7 +251,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  layer: ""
+  layer: "notices"
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
@@ -291,7 +296,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "30"
+  text: ""
   font: "gothic"
   id: "countdownInfoText"
   xanchor: XANCHOR_NONE
@@ -311,7 +316,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  layer: ""
+  layer: "notices"
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
@@ -362,7 +367,7 @@ nodes {
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  layer: ""
+  layer: "notices"
   inherit_alpha: true
   slice9 {
     x: 0.0
@@ -419,7 +424,7 @@ nodes {
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  layer: ""
+  layer: "notices"
   inherit_alpha: true
   slice9 {
     x: 0.0
@@ -476,7 +481,7 @@ nodes {
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  layer: ""
+  layer: "notices"
   inherit_alpha: true
   slice9 {
     x: 0.0

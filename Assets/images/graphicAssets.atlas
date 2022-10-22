@@ -1,8 +1,4 @@
 images {
-  image: "/Assets/images/thrashMan.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-}
-images {
   image: "/Assets/images/background.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
@@ -36,6 +32,10 @@ images {
 }
 images {
   image: "/Assets/images/white_hearth.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/Assets/images/purple_slug.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {

@@ -1,5 +1,25 @@
 name: "default"
 instances {
+  id: "trashMan"
+  prototype: "/Assets/prefabs/trashMan/trashMan.go"
+  position {
+    x: 379.0
+    y: 274.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
   id: "treeMan"
   prototype: "/Assets/prefabs/treeMan/treeMan.go"
   position {
@@ -16,26 +36,6 @@ instances {
   scale3 {
     x: 1.0
     y: 1.0
-    z: 1.0
-  }
-}
-instances {
-  id: "trashMan1"
-  prototype: "/Assets/prefabs/trashMan/trashMan.go"
-  position {
-    x: 250.0
-    y: 217.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 0.1
-    y: 0.1
     z: 1.0
   }
 }
@@ -187,8 +187,58 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "trashMan"
-  children: "trashMan1"
+  id: "main"
+  data: "components {\n"
+  "  id: \"main\"\n"
+  "  component: \"/main/main.script\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  "components {\n"
+  "  id: \"in_game\"\n"
+  "  component: \"/main/in_game.gui\"\n"
+  "  position {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "  }\n"
+  "  rotation {\n"
+  "    x: 0.0\n"
+  "    y: 0.0\n"
+  "    z: 0.0\n"
+  "    w: 1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+embedded_instances {
+  id: "trash"
+  children: "trashMan"
   data: "embedded_components {\n"
   "  id: \"trashmanfactory\"\n"
   "  type: \"factory\"\n"
@@ -226,38 +276,9 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "main"
-  data: "components {\n"
-  "  id: \"main\"\n"
-  "  component: \"/main/main.script\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  "components {\n"
-  "  id: \"in_game\"\n"
-  "  component: \"/main/in_game.gui\"\n"
-  "  position {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "  }\n"
-  "  rotation {\n"
-  "    x: 0.0\n"
-  "    y: 0.0\n"
-  "    z: 0.0\n"
-  "    w: 1.0\n"
-  "  }\n"
-  "}\n"
-  ""
+  id: "tree"
+  children: "treeMan"
+  data: ""
   position {
     x: 0.0
     y: 0.0

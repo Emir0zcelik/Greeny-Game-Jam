@@ -1,9 +1,9 @@
 local function random_position()
-	return vmath.vector3(math.random(32, 512 - 64),math.random(32, 512 - 64), 0)
+	return vmath.vector3(math.random(32, 720 - 64),math.random(32, 720 - 64), 0)
 end
 
 local function spawn_trash_man()
-	return factory.create("/trashMan#trashmanfactory", random_position(), nil, nil, vmath.vector3(0.1))
+	return factory.create("/trash#trashmanfactory", random_position(), nil, nil, vmath.vector3(1))
 end
 
 function init(self)
@@ -32,6 +32,7 @@ function update(self, dt)
 	else
 		if self.countdown > 0.5 then
 			self.countdown = self.countdown - dt
+			msg.post("/main#in_game", "update_time", { time = self.countdown })
 		elseif self.countdown <= 0.5 then
 			self.spawning = true
 		end
@@ -39,7 +40,6 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	
 	if message_id == hash("start_main_menu") then
 		if self.state ~= "MAIN_MENU" then	
 			if self.state == "GAME_RUNNING" then

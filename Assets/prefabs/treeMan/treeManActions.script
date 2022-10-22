@@ -1,7 +1,8 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
 
-	self.health = 4
+	self.damageing = false
+	self.health = 3
 	self.dt = nill
 	self.timer = 3
 	self.ammo = 7
@@ -16,14 +17,20 @@ end
 function update(self, dt)
 	self.dt = dt
 	if self.health == 0 then
-	
+		msg.post("/main#main", "start_main_menu")
+	end
+
+	if self.damaging then
+		self.health = self.health - 1
+		self.damaging = false
 	end
 	if self.moving then
 		local pos = go.get_position()
 		pos = pos + self.dir * self.speed * dt
 		go.set_position(pos)
 	end
-	
+	msg.post("/main#in_game", "update_ammo", { ammo = self.ammo })
+	msg.post("/main#in_game", "update_health", { health = self.health })
 	if self.firing and self.ammo >= 0 then
 		local angle = math.atan2(self.dir.y , self.dir.x)
 		local rot = vmath.quat_rotation_z(angle)
@@ -64,6 +71,7 @@ end
 function on_message(self, message_id, message, sender)
 	self.object_id = msg.url(message.other_id)
 	if message_id == hash("contact_point_response") then
+		print(message.other_group)
 		if message.other_group == hash("apple") then
 			self.timer = self.timer - self.dt
 			if self.timer < 2.7 then
@@ -71,12 +79,13 @@ function on_message(self, message_id, message, sender)
 				self.ammo = self.ammo + 1
 				self.timer = 3
 			end
-		elseif message.other_group == hash("trash") then
-			self.health = self.health - 1
-			go.delete(self.object_id)
 		elseif message.other_group == hash("wall") then
 			go.set_position(go.get_position() + message.normal * message.distance)
 		end
-		
+	elseif message_id == hash("collision_response") then
+		if message.other_group == hash("trash") then
+			self.damaging = true
+			go.delete(self.object_id)
+		end
 	end
 end
