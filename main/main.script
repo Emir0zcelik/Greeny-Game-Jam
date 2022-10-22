@@ -27,7 +27,6 @@ function update(self, dt)
 		self.countdown = self.time
 		self.spawning = false
 	else
-		print(self.countdown)
 		if self.countdown > 0.5 then
 			self.countdown = self.countdown - dt
 		elseif self.countdown <= 0.5 then

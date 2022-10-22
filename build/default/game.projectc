@@ -29,14 +29,14 @@ display_device_info = 0
 display_profiles = /builtins/render/default.display_profilesc
 dynamic_orientation = 0
 fullscreen = 0
-height = 512
+height = 405
 high_dpi = 0
 samples = 0
 swap_interval = 1
 update_frequency = 0
 variable_dt = 0
 vsync = 1
-width = 512
+width = 720
 
 [engine]
 fixed_update_frequency = 60
@@ -46,8 +46,8 @@ run_while_iconified = 0
 max_count = 128
 
 [graphics]
-default_texture_mag_filter = linear
-default_texture_min_filter = linear
+default_texture_mag_filter = nearest
+default_texture_min_filter = nearest
 max_characters = 8192
 max_debug_vertices = 10000
 max_draw_calls = 1024

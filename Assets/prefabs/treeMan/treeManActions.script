@@ -9,15 +9,14 @@ function init(self)
 	self.firing = false
 	self.deleting = false
 	self.dir = vmath.vector3(0 , 0, 0)
-	self.speed = 50
+	self.speed = 100
 	self.input = vmath.vector3() 
 end
 
 function update(self, dt)
 	self.dt = dt
-	--print(self.health)
 	if self.health == 0 then
-		--print("You are dead haci")
+	
 	end
 	if self.moving then
 		local pos = go.get_position()
@@ -75,6 +74,9 @@ function on_message(self, message_id, message, sender)
 		elseif message.other_group == hash("trash") then
 			self.health = self.health - 1
 			go.delete(self.object_id)
+		elseif message.other_group == hash("wall") then
+			go.set_position(go.get_position() + message.normal * message.distance)
 		end
+		
 	end
 end
