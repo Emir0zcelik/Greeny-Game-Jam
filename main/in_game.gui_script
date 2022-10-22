@@ -1,11 +1,19 @@
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	print(msg.url())
+	msg.post("#game_level_proxy", "load")
+	self.paused = false
+	self.pause_node = gui.get_node("stopButton")
+end
+
+function final(self)
+	msg.post(".", "release_input_focus")
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("update_time") then
+	if message_id == hash("proxy_loaded") then
+		msg.post(sender, "enable")
+	elseif message_id == hash("update_time") then
 		local time = gui.get_node("countdownInfoText")
 		gui.set_text(time, message.time)
 	elseif message_id == hash("update_ammo") then
@@ -29,11 +37,20 @@ function on_message(self, message_id, message, sender)
 			gui.play_flipbook(health2, hash("white_hearth"))
 			msg.post("@system:", "exit", {code = 0})
 		end
-		
-	
 	end
 end
 
 function on_input(self, action_id, action)
 	
+	if action.released and gui.pick_node(self.pause_node, action.x, action.y) then
+		self.paused = not self.paused
+		if self.paused then
+			gui.play_flipbook(self.pause_node, hash("play_button"))
+			msg.post("#game_level_proxy", "set_time_step", {factor = 0, mode = 1})
+		else
+			gui.play_flipbook(self.pause_node, hash("stop_button_released"))
+			msg.post("#game_level_proxy", "set_time_step", {factor = 1, mode = 1})
+		end
+	end
 end
+

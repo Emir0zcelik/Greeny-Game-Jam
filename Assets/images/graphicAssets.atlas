@@ -15,10 +15,6 @@ images {
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/Assets/images/stop_button_pressed.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-}
-images {
   image: "/Assets/images/stop_button_released.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
@@ -36,6 +32,10 @@ images {
 }
 images {
   image: "/Assets/images/purple_slug.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/Assets/images/play_button.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {

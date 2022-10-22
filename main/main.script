@@ -1,5 +1,5 @@
 local function random_position()
-	return vmath.vector3(math.random(32, 720 - 64),math.random(32, 720 - 64), 0)
+	return vmath.vector3(math.random(32, 512),math.random(200, 512 - 64), 0)
 end
 
 local function spawn_trash_man()
@@ -20,13 +20,13 @@ end
 
 function update(self, dt)
 	if self.spawning then
-		self.counter = self.counter * self.counter
+		self.counter = self.counter * 1.5
 		
-		for i = 1, self.counter do
+		for i = 1, self.counter  do
 			table.insert(self.enemies, spawn_trash_man())
 		end
 		self.counter = self.counter + 1
-		self.time = self.time * 2.5
+		self.time = self.time * 2
 		self.countdown = self.time
 		self.spawning = false
 	else
