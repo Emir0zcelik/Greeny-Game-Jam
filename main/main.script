@@ -9,8 +9,9 @@ end
 function init(self)
 	math.randomseed(os.time())
 	self.enemies = {}
+	
 
-	for i = 1, 20 do
+	for i = 1, 36 do
 		table.insert(self.enemies, spawn_trash_man())
 	end
 end

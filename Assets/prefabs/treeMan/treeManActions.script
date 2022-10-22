@@ -1,6 +1,7 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
 
+	print(msg.url())
 	self.health = 4
 	self.dt = nill
 	self.timer = 3

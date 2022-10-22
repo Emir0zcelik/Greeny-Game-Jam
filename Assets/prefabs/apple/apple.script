@@ -23,7 +23,12 @@ function on_message(self, message_id, message, sender)
 	print(self.object_id)
 	if message_id == hash("collision_response") then
 		if message.other_group == hash("trash") then
-			go.delete(self.object_id)
+			if self.speed > 0 then
+				self.speed = -100
+				go.delete(self.object_id)
+			end
+		--elseif message.other_group == hash("wall") then
+			--self.speed = -100
 		end
 	end
 end
