@@ -1,0 +1,16 @@
+local function random_position()
+	return vmath.vector3(math.random(32, 512 - 64),math.random(32, 512 - 64), 0)
+end
+
+local function spawn_trash_man()
+	return factory.create("/trashMan#trashmanfactory", random_position(), nil, nil, vmath.vector3(0.1))
+end
+
+function init(self)
+	math.randomseed(os.time())
+	self.enemies = {}
+
+	for i = 1, 20 do
+		table.insert(self.enemies, spawn_trash_man())
+	end
+end

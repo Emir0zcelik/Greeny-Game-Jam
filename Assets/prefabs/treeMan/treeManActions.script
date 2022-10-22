@@ -1,6 +1,7 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
 
+	self.health = 4
 	self.dt = nill
 	self.timer = 3
 	self.ammo = 5
@@ -14,6 +15,10 @@ end
 
 function update(self, dt)
 	self.dt = dt
+	print(self.health)
+	if self.health == 0 then
+		--print("You are dead haci")
+	end
 	if self.moving then
 		local pos = go.get_position()
 		pos = pos + self.dir * self.speed * dt
@@ -47,7 +52,6 @@ function on_input(self, action_id, action)
 		self.firing = true
 		self.ammo = self.ammo - 1 
 		self.timer = 3
-		print(self.ammo)
 	elseif action_id == hash("fire") and action.released then
 		self.firing = false
 	end
@@ -59,16 +63,18 @@ function on_input(self, action_id, action)
 end
 
 function on_message(self, message_id, message, sender)
-	self.apple_id = msg.url(message.other_id)
+	self.object_id = msg.url(message.other_id)
 	if message_id == hash("contact_point_response") then
 		if message.other_group == hash("apple") then
 			self.timer = self.timer - self.dt
-			print(self.timer)
 			if self.timer < 2.7 then
-				go.delete(self.apple_id)
+				go.delete(self.object_id)
 				self.ammo = self.ammo + 1
 				self.timer = 3
 			end
+		elseif message.other_group == hash("trash") then
+			self.health = self.health - 1
+			go.delete(self.object_id)
 		end
 	end
 end

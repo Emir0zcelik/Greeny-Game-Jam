@@ -43,6 +43,7 @@ embedded_components {
   "restitution: 0.5\n"
   "group: \"apple\"\n"
   "mask: \"tree\"\n"
+  "mask: \"trash\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_SPHERE\n"
