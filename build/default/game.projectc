@@ -11,7 +11,7 @@ target_sdk_version = 31
 version_code = 1
 
 [bootstrap]
-main_collection = /main/main.collectionc
+main_collection = /main/main_menu.collectionc
 render = /builtins/render/default.renderc
 
 [collection]

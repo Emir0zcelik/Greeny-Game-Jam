@@ -4,7 +4,7 @@ function init(self)
 	self.health = 4
 	self.dt = nill
 	self.timer = 3
-	self.ammo = 5
+	self.ammo = 7
 	self.moving = false
 	self.firing = false
 	self.deleting = false
