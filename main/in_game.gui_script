@@ -35,7 +35,6 @@ function on_message(self, message_id, message, sender)
 			gui.play_flipbook(health1, hash("white_hearth"))
 			local health2 = gui.get_node("hearth02")
 			gui.play_flipbook(health2, hash("white_hearth"))
-			msg.post("@system:", "exit", {code = 0})
 		end
 	end
 end

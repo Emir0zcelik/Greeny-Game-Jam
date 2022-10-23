@@ -1,5 +1,6 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
+	msg.post("camera", "acquire_camera_focus")
 
 	self.damageing = false
 	self.health = 3
@@ -17,10 +18,13 @@ end
 function update(self, dt)
 	self.dt = dt
 	if self.health == 0 then
-		msg.post("/main#main", "start_main_menu")
+		msg.post("/camera#baturinsky_shake", "shake")
+		msg.post("main_menu:/main#main", "start_main_menu")
+		msg.post("#", "disable")
 	end
 
 	if self.damaging then
+		msg.post("/camera#baturinsky_shake", "shake")
 		self.health = self.health - 1
 		self.damaging = false
 	end
