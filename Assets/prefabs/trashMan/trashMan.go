@@ -17,7 +17,7 @@ embedded_components {
   id: "sprite"
   type: "sprite"
   data: "tile_set: \"/Assets/images/graphicAssets.atlas\"\n"
-  "default_animation: \"purple_slug\"\n"
+  "default_animation: \"purpleSlug\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""

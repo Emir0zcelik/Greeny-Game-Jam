@@ -18,6 +18,8 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("shake") then
-		self.shake = 15	-- britzl: added shake amount to message
+		self.shake = 25	-- britzl: added shake amount to message
+	elseif message_id == hash("shakeEnemy") then
+		self.shake = 1.5
 	end
 end

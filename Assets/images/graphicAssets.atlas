@@ -34,14 +34,6 @@ images {
   image: "/Assets/images/play_button.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
-images {
-  image: "/Assets/images/purple_slug_damaged.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-}
-images {
-  image: "/Assets/images/purple_slug.png"
-  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-}
 animations {
   id: "treeManUp"
   images {
@@ -173,6 +165,21 @@ animations {
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 3
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "purpleSlug"
+  images {
+    image: "/Assets/images/purple_slug.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/Assets/images/purple_slug_damaged.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 2
   flip_horizontal: 0
   flip_vertical: 0
 }

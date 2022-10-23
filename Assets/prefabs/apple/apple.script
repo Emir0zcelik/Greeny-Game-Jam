@@ -25,6 +25,7 @@ function on_message(self, message_id, message, sender)
 			if self.speed > 0 then
 				self.speed = -100
 				msg.post("/trashMan#trashManActions", "die")
+				msg.post("/camera#baturinsky_shake", "shakeEnemy")
 				go.delete(self.object_id)
 			end
 		end
