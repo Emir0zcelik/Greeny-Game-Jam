@@ -53,12 +53,26 @@ end
 function on_input(self, action_id, action)
 	if action_id == hash("up") then 
 		self.input.y = 1
+		if action.pressed then
+			msg.post("#sprite", "play_animation", {id = hash("treeManUp")})
+		end
+		
 	elseif action_id == hash("down") then
 		self.input.y = -1
+		if action.pressed then
+			msg.post("#sprite", "play_animation", {id = hash("treeManDown")})
+		end
 	elseif action_id == hash("left") then
 		self.input.x = -1
+		if action.pressed then
+			msg.post("#sprite", "play_animation", {id = hash("treeManLeft")})
+		end
 	elseif action_id == hash("right") then
 		self.input.x = 1
+		if action.pressed then
+			msg.post("#sprite", "play_animation", {id = hash("treeManRight")})
+		end
+		
 	elseif action_id == hash("fire") and action.pressed and self.ammo > 0 then
 		self.firing = true
 		self.ammo = self.ammo - 1 

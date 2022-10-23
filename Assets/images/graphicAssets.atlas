@@ -81,7 +81,7 @@ animations {
   flip_vertical: 0
 }
 animations {
-  id: "treeManSide"
+  id: "treeManLeft"
   images {
     image: "/Assets/images/treeMan_side1.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
@@ -100,53 +100,7 @@ animations {
   }
   playback: PLAYBACK_LOOP_FORWARD
   fps: 4
-  flip_horizontal: 0
-  flip_vertical: 0
-}
-animations {
-  id: "treeManUpD"
-  images {
-    image: "/Assets/images/treeMan_up_d1.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/Assets/images/treeMan_up_d2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/Assets/images/treeMan_up_d3.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/Assets/images/treeMan_up_d4.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  playback: PLAYBACK_LOOP_FORWARD
-  fps: 4
-  flip_horizontal: 0
-  flip_vertical: 0
-}
-animations {
-  id: "treeManDownD"
-  images {
-    image: "/Assets/images/treeMan_down_d1.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/Assets/images/treeMan_down_d2.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/Assets/images/treeMan_down_d3.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
-    image: "/Assets/images/treeMan_down_d4.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  playback: PLAYBACK_LOOP_FORWARD
-  fps: 4
-  flip_horizontal: 0
+  flip_horizontal: 1
   flip_vertical: 0
 }
 animations {
@@ -180,6 +134,29 @@ animations {
   }
   playback: PLAYBACK_NONE
   fps: 2
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "treeManRight"
+  images {
+    image: "/Assets/images/treeMan_side1.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/Assets/images/treeMan_side2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/Assets/images/treeMan_side3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/Assets/images/treeMan_side4.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
   flip_horizontal: 0
   flip_vertical: 0
 }
