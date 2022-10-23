@@ -68,6 +68,6 @@ function on_message(self, message_id, message, sender)
 			end
 		end
 	elseif message_id == hash("collision_response") then
-
+		msg.post("#sprite", "play_animation", {id = hash("purple_slug_damaged")})
 	end
 end
