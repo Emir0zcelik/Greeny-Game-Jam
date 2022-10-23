@@ -67,5 +67,7 @@ function on_message(self, message_id, message, sender)
 				self.nearby[message.other_id] = false
 			end
 		end
+	elseif message_id == hash("collision_response") then
+
 	end
 end

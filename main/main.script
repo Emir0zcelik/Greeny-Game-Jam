@@ -26,7 +26,7 @@ function update(self, dt)
 			table.insert(self.enemies, spawn_trash_man())
 		end
 		self.counter = self.counter + 1
-		self.time = self.time * 2
+		self.time = self.time * 1.5
 		self.countdown = self.time
 		self.spawning = false
 	else
