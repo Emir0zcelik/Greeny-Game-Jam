@@ -25,6 +25,7 @@ function update(self, dt)
 
 	if self.damaging then
 		msg.post("/camera#baturinsky_shake", "shake")
+		msg.post("/trashMan#trashManActions", "die")
 		self.health = self.health - 1
 		self.damaging = false
 	end

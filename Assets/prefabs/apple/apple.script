@@ -24,6 +24,7 @@ function on_message(self, message_id, message, sender)
 		if message.other_group == hash("trash") then
 			if self.speed > 0 then
 				self.speed = -100
+				msg.post("/trashMan#trashManActions", "die")
 				go.delete(self.object_id)
 			end
 		end

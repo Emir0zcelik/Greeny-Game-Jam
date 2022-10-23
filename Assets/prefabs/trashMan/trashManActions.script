@@ -67,7 +67,7 @@ function on_message(self, message_id, message, sender)
 				self.nearby[message.other_id] = false
 			end
 		end
-	elseif message_id == hash("collision_response") then
+	elseif message_id == hash("die") then
 		msg.post("#sprite", "play_animation", {id = hash("purple_slug_damaged")})
 	end
 end
